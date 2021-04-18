@@ -1,0 +1,44 @@
+.entry{
+    width: 100%;
+    border: 1px solid #dadada;
+    padding: 10px;
+    margin-bottom: 20px;
+    &-head{
+        display: flex;
+        .post {
+            width: 100%;
+            padding: 10px;
+            .user-name{
+                color: #5ab995;
+                font-size: 1.2rem;
+                font-weight: bold;
+            }
+            .status {
+                padding: 20px 0px;
+            }
+            .actions{
+                button{
+                    color: #5ab995;
+                    background: none;
+                    border: 0;
+                    padding: 0;
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+    &-up-body{
+        border: 1px solid #dadada;
+        border-left: 0;
+        border-right: 0;
+        width: calc(100% + 20px);
+        position: relative;
+        left: -10px;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        .comments-quantity {
+            color: #928f8f
+        }
+    }
+}
