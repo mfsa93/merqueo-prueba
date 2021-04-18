@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import Comment from './Comment/Comment'
 import AddComment from './../../AddComment/AddComment';
+import Reactions from './../../Reactions/Reactions'
+import ReactionsView from './../../ReactionsView/ReactionsView'
 import './Entry.scss'
 
 import userImage from './../../../assets/images/user.jpeg'
@@ -37,14 +39,19 @@ function Entry(props: any) {
                                 {entry.comment}
                             </div>
                             <div className="actions">
-                                <button>Reaccionar</button>
-                                <button>Comentar</button>
+                                <Reactions entry={entry}/>
+                                
+                                <div>
+                                    <button>Comentar</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div className="entry-up-body">
-                        <div></div>
-                        <div className="comments-quantity">
+                        <div className="reactions-container">
+                            <ReactionsView entry={entry}></ReactionsView> <span className="reactions-count">{entry.reactions?.length}</span>
+                        </div>
+                        <div className="comments-count">
                             {entry.comments.length} Comentarios
                         </div>
                     </div>
@@ -53,7 +60,7 @@ function Entry(props: any) {
                             { 
                                 entry.comments.map( (comment: any) => {
                                     return(
-                                        <Comment key={comment.id} comment={comment} />
+                                        <Comment key={`${comment.user.id}${comment.created}`} comment={comment} />
                                     ) 
                                 }) 
                             }

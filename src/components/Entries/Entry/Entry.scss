@@ -17,12 +17,15 @@
                 padding: 20px 0px;
             }
             .actions{
+                display: flex;
                 button{
                     color: #5ab995;
                     background: none;
                     border: 0;
                     padding: 0;
                     margin-right: 20px;
+                    padding: 10px 13px;
+                    padding-left: 0;
                 }
             }
         }
@@ -37,8 +40,16 @@
         display: flex;
         justify-content: space-between;
         padding: 10px;
-        .comments-quantity {
+        .comments-count {
             color: #928f8f
+        }
+        .reactions-container {
+            display: flex;
+            .reactions-count {
+                padding-left: 10px;
+                color: #5ab995;
+                font-weight: bold;
+            }
         }
     }
 }

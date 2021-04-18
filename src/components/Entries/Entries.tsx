@@ -13,7 +13,6 @@ function Entries() {
         firebase.getEntriesRef().orderBy('created', 'desc').onSnapshot((querySnapshot: any) => {
             
             const items: any = querySnapshot.docs.map( (doc: any) => {
-                console.log(doc.data())
                 return doc.data()
             })
             setEntries(items);
