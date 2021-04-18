@@ -23,6 +23,13 @@ function FeedEntryBox(props: any) {
         }
         console.log(newEntry);
         firebase.addEntry(newEntry)
+        setEntry('')
+    }
+
+    function handleKeyUp(key: string) {
+        if(key === 'Enter') { 
+            publish()
+        }
     }
 
     return(
@@ -33,6 +40,7 @@ function FeedEntryBox(props: any) {
                     onChange={ e => setEntry(e.target.value)}
                     value={entry}
                     placeholder="Escribe aqui tu estado"
+                    onKeyUp={e => handleKeyUp(e.key)}
                 />
             </div>
             <div className="feed-entry-box-footer">

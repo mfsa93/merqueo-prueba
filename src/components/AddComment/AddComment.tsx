@@ -25,12 +25,13 @@ function AddComment(props: any) {
             })
 
             firebase.addEntry(entry)
+            setComment('')
         }
     }
 
     return (
         <div className="comment-form">
-            <input type="text" placeholder="Escribe un comentario" value={comment} onChange={ (e: any) => setComment(e.target.value)} onKeyUp={ e => addComment(e.key)}/>
+            <input type="text" id={`comment-input-${entry.id}`} placeholder="Escribe un comentario" value={comment} onChange={ (e: any) => setComment(e.target.value)} onKeyUp={ e => addComment(e.key)}/>
         </div>
     )
 }

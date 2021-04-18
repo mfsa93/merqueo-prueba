@@ -1,3 +1,4 @@
+@import "./../../assets/scss/breakpoints.scss";
 .feed-entry-box{
     background: #fff;
     border: 1px solid #dadada;
@@ -23,6 +24,7 @@
     &-footer{
         padding: 10px;
         text-align: right;
+        display: none;
         button{
             padding: 10px 25px;
             font-size: 1rem;
@@ -30,6 +32,10 @@
             border: 0;
             color: #fff;
             border-radius: 5px
+        }
+
+        @media (min-width: $large) {
+            display: block;
         }
     }
 }

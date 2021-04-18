@@ -39,22 +39,22 @@ function Reactions(props: any) {
             <div  className="options">
                 <span  className="reactions">
                     <div  className="icon-container" onClick={ () => addReaction('like')} >
-                        <span data-popup="Like" className={`like reaction is-visible`}></span>
+                        <span data-popup="Me gusta" className={`like reaction is-visible`}></span>
                     </div>
                     <div  className="icon-container" onClick={ () => addReaction('love')}>
-                        <span data-popup="Love" className={`love reaction is-visible`}></span>
+                        <span data-popup="Me encanta" className={`love reaction is-visible`}></span>
                     </div>
                     <div  className="icon-container" onClick={ () => addReaction('haha')}>
-                        <span data-popup="Haha" className={`wow reaction is-visible`}></span>
+                        <span data-popup="Me divierte" className={`wow reaction is-visible`}></span>
                     </div>
                     <div  className="icon-container" onClick={ () => addReaction('wow')}>
-                        <span data-popup="Wow" className={`haha reaction is-visible`}></span>
+                        <span data-popup="Me asombra" className={`haha reaction is-visible`}></span>
                     </div>
                     <div  className="icon-container" onClick={ () => addReaction('sad')}>
-                        <span data-popup="Sad" className={`sad reaction is-visible`}></span>
+                        <span data-popup="Me entristece" className={`sad reaction is-visible`}></span>
                     </div>
                     <div  className="icon-container" onClick={ () => addReaction('angry')}>
-                        <span data-popup="Angry" className={`angry reaction is-visible`}></span>
+                        <span data-popup="Me enoja" className={`angry reaction is-visible`}></span>
                     </div>
                 </span>
                 

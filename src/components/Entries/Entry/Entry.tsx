@@ -16,6 +16,13 @@ function Entry(props: any) {
         setEntry(props.entry)
     }, [] )
 
+    function addComment(e: any) {
+        const input = document.getElementById(`comment-input-${entry.id}`);
+        if(input) {
+            input.focus()
+        }
+    }
+
     return (
         <div className="entry">
             {
@@ -42,7 +49,7 @@ function Entry(props: any) {
                                 <Reactions entry={entry}/>
                                 
                                 <div>
-                                    <button>Comentar</button>
+                                    <button onClick={e => addComment(e)}>Comentar</button>
                                 </div>
                             </div>
                         </div>
@@ -55,7 +62,14 @@ function Entry(props: any) {
                             {entry.comments.length} Comentarios
                         </div>
                     </div>
-                    <div className="entry-body">
+                    <div className="entry-actions actions-mobile">
+                        <Reactions entry={entry}/>
+                        
+                        <div className="comment">
+                            <button onClick={e => addComment(e)}>Comentar</button>
+                        </div>
+                    </div>
+                    <div className="entry-body-comments">
                         <div className="entry-comments">
                             { 
                                 entry.comments.map( (comment: any) => {

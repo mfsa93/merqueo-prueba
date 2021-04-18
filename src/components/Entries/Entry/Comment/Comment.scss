@@ -5,15 +5,15 @@
         display: flex;
         flex-wrap: wrap;
         .user-image {
-            width: 10%
+            width: 55px
         }
         .comment-body{
-            width: 90%;
+            width: calc(100% - 55px);
             padding: 10px;
             .username{
                 color: #5ab995;
                 font-weight: bold;
-                margin-right: 15px;
+                margin-right: 5px;
             }
         }
     }
