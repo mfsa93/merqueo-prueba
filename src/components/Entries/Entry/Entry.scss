@@ -1,0 +1,103 @@
+@import './../../../assets/scss/breakpoints.scss';
+.entry{
+    width: 100%;
+    border: 1px solid #dadada;
+    padding: 10px;
+    margin-bottom: 20px;
+    background: #fff;
+    padding-bottom: 0px;
+    box-shadow: 0px 4px 10px -6px #000000;
+    &-head{
+        display: flex;
+        .post {
+            width: 100%;
+            padding: 10px;
+            .user-name{
+                color: #5ab995;
+                font-size: 1.2rem;
+                font-weight: bold;
+            }
+            .status {
+                padding: 20px 0px;
+            }
+
+            .actions {
+                display: none;
+            }
+
+            @media (min-width: $large) {
+                .actions{
+                    display: flex;
+                    button{
+                        color: #5ab995;
+                        background: none;
+                        border: 0;
+                        padding: 0;
+                        margin-right: 20px;
+                        padding: 10px 13px;
+                        padding-left: 0;
+                    }
+                }
+            }
+            
+        }
+    }
+    &-up-body{
+        border: 1px solid #dadada;
+        border-left: 0;
+        border-right: 0;
+        width: calc(100% + 20px);
+        position: relative;
+        left: -10px;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        .comments-count {
+            color: #928f8f
+        }
+        .reactions-container {
+            display: flex;
+            .reactions-count {
+                padding-left: 10px;
+                color: #5ab995;
+                font-weight: bold;
+            }
+        }
+    }
+
+    &-body-comments{
+        width: calc(100% + 20px);
+        position: relative;
+        left: -10px;
+        padding: 10px;
+        background: #f4f4f4;
+    }
+
+    &-actions{
+        width: 100%;
+        display: flex;
+        .reactions, .comment{
+            width: 50%;
+            display: block;
+            @media (min-width: $large) {
+                display: none;
+            }
+        }
+        .reactions {
+            border-right: 1px solid #dadada;
+        }
+        button{
+            color: #5ab995;
+            background: none;
+            border: 0;
+            padding: 0;
+            margin-right: 20px;
+            padding: 10px 13px;
+            padding-left: 0;
+            width: calc(100% + 20px);
+            position: relative;
+            left: -10px;
+            border-bottom: 1px solid #dadada;
+        }
+    }
+}

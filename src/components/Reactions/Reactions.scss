@@ -1,0 +1,206 @@
+
+.options {
+    border-radius: 20px;
+    font: {
+      size: 0;
+      family: Helvetica;
+      weight: bold;
+    }
+    color: #5ab995;
+    position: relative;
+    cursor: pointer;
+    text-align: left;
+
+    .button {
+      vertical-align: middle;
+    }
+    .reactions {
+      .icon-container {
+        &:hover {
+          transform: scale(1.3, 1.3) translateY(-5px);
+        }
+      }
+    }
+    &:hover {
+      .reactions {
+        opacity: 1;
+        z-index: 1;
+      }
+    }
+    &.default {
+      color: #7f7f7f !important;
+
+      &::before {
+        background: {
+          position: 0 -893px;
+        }      
+      }
+    }
+    &.Like {
+      color: rgb(88, 144, 255);
+
+      &::before {
+        background: {
+          position: 0 -922px;
+        }
+      }
+    }
+    &.Love {
+      &::before {
+        background: {
+          position: 0 -710px;
+        }
+      }
+    }
+    &.Thankful {
+      &::before {
+        background: {
+          position: 0 -642px;
+        }
+      }
+    }
+    &.Haha {
+      &::before {
+        background: {
+          position: 0 -676px;
+        }    
+      }
+    }
+    &.Wow {
+      &::before {
+        background: {
+          position: 0 -795px;
+        }    
+      }
+    }
+    &.Sad {
+      &::before {
+        background: {
+          position: 0 -744px;
+        }    
+      }
+    }
+    &.Angry {
+      &::before {
+        background: {
+          position: 0 -608px;
+        };
+      }
+    }
+    .reactions {
+      position: absolute;
+      bottom: 130%;
+      left: 50%;
+      transform: translateX(-50%);
+      line-height: 0;
+      white-space: nowrap;
+      opacity: 0;
+      padding: 3px;
+      pointer-events: none;
+      transition: .2s .5s;
+      z-index: -1;
+
+      .icon-container {
+        display: inline-block;
+        transition: transform .2s ease;
+      }
+      .reaction {
+        display: inline-block;
+        height: 48px;
+        width: 48px;
+        transform: perspective(1px) scale(.8, .8) translate(0, 0);
+        transition: transform 0s .7s ease, opacity 0s .7s ease;
+        line-height: initial;
+        opacity: 0;
+        border-radius: 100%;
+        background: {
+          image: url(https://assets.medinnna.com/facebook-reactions.gif);
+          repeat: no-repeat;
+          size: auto;
+        }    
+        &.is-visible {
+          transition: opacity .3s ease;
+          opacity: 1;
+          pointer-events: all;
+          animation: testes .6s ease forwards;
+
+          @keyframes testes {
+            0% {
+              transform: perspective(1px) scale(.8, .8) translate(0, 70px);
+            }
+            30% {
+              transform: perspective(1px) scale(.87, .87) translate(0, -4px);
+            }
+            70% {
+              transform: perspective(1px) scale(.8, .8) translate(0, 1px);
+            }
+            100% {
+              transform: perspective(1px) scale(.8, .8) translate(0, 0);
+            }
+          }
+
+          &:hover {
+            transform: perspective(1px) scale(1, 1) translate(0, -5px);
+
+            &::after {
+              opacity: 1;
+            }
+          }
+        }
+        &::after {
+          content: attr(data-popup);
+          position: absolute;
+          background: rgba(0, 0, 0, .7);
+          border-radius: 15px;
+          color: white;
+          font: {
+            family: helvetica;
+            weight: bold;
+            size: 13px;
+          }
+          padding: 2px 7px;
+          top: -25px;
+          left: 50%;
+          transform: translateX(-50%);
+          white-space: nowrap;
+          opacity: 0;
+          transition: opacity .07s ease;
+        }
+        &.like {
+          background: {
+            position: 0 0;
+          };
+        }
+        &.love {
+          background: {
+            position: -52px 0;
+          }    
+        }
+        &.thankful {
+          background: {
+            position: -314px 0;
+          };
+        }
+        &.haha {
+          background: {
+            position: -104px 0;
+          };
+        }
+        &.wow {
+          background: {
+            position: -156px 0;
+          };
+        }
+        &.sad {
+          background: {
+            position: -208px 0;
+          };
+        }
+        &.angry {
+          background: {
+            position: -260px 0;
+          }
+        }
+      }
+    }
+}
