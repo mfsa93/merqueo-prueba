@@ -1,11 +1,14 @@
 import './Reactions.scss'
 import firebase from './../../core/firebase'
 import * as _ from 'lodash'
+import { useAuth } from '../../hooks/useAuth';
 
 function Reactions(props: any) {
 
+    const auth = useAuth()
+
     function addReaction(reactionName: string) {
-        const user = firebase.getCurrentUser();
+        const user = auth.user;
         const reaction = {
             name: reactionName,
             user: user.uid

@@ -1,15 +1,16 @@
 import { useState } from "react"
 import { v4 as uuidv4 } from 'uuid';
+import { useAuth } from "../../hooks/useAuth";
 import firebase from './../../core/firebase'
 import './FeedEntryBox.scss'
 
 function FeedEntryBox(props: any) {
 
-
+    const auth = useAuth()
     const [entry, setEntry] = useState('')
 
     function publish() {
-        const user = firebase.getCurrentUser()
+        const user = auth.user
         const newEntry = {
             comment: entry,
             id: uuidv4(),
