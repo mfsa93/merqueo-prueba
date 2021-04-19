@@ -1,16 +1,21 @@
 import { useState } from "react";
 import firebase from './../../core/firebase'
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import './Login.scss'
+import { useAuth } from "../../hooks/useAuth";
 
 function Login(props: any) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const auth = useAuth();
+    const history = useHistory()
 
-    async function login() {
+    async function login(e: any) {
+        e.preventDefault();
 		try {
-			await firebase.login(email, password)
-			props.history.replace('/')
+			await auth.login(email, password);
+            history.push('/')
+			
 		} catch(error) {
 			alert(error.message)
 		}

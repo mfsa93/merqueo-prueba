@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useAuth } from "../../hooks/useAuth"
 import firebase from './../../core/firebase'
 
 import './AddComment.scss'
@@ -7,6 +8,7 @@ function AddComment(props: any) {
 
     const [comment, setComment] = useState('')
     const [entry, setEntry] = useState({} as any)
+    const auth = useAuth()
 
     useEffect( () => {
         setEntry(props.entry)
@@ -14,7 +16,7 @@ function AddComment(props: any) {
 
     function addComment(keyName: string) {
         if(keyName === 'Enter') {
-            const user = firebase.getCurrentUser()
+            const user = auth.user
             entry.comments.push({
                 user: {
                     name: user.displayName,
