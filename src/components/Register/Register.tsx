@@ -1,18 +1,20 @@
 import React, { useState } from "react"
 import firebase from './../../core/firebase'
 import {Link, useHistory} from 'react-router-dom'
+import { useAuth } from "../../hooks/useAuth"
 
 function Register(props: any) {
     const [name, setName] = useState('')
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
     const history = useHistory()
+    const auth = useAuth()
 
-    async function onRegister() {
+    async function onRegister(e: any) {
+        e.preventDefault();
 		try {
-			firebase.register(name, email, password).then( () => {
-                history.push('/feed')
-            })
+			await auth.signup(name, email, password)
+            history.push('/')
 		} catch(error) {
 			alert(error.message)
 		}
@@ -47,8 +49,8 @@ function Register(props: any) {
                 />
 
                 <button
-                    type="submit"
                     color="primary"
+                    type="submit"
                     onClick={onRegister}
                 >
                     Register
